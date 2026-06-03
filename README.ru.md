@@ -12,11 +12,6 @@
 - 🔍 **Service Discovery** (Spring Boot Eureka)
 - 🔐 **Защищенное API** с JWT аутентификацией
 
-## 🖥️ Веб-приложение
-
-Доступно по адресу:  
-👉 [https://kolyanok.ru:8043](https://kolyanok.ru:8043)
-
 **Технологии:**
 - **Фронтенд**: Vue.js 3, Vuetify, Axios
 - **Бэкенд**: Go (Gin framework)

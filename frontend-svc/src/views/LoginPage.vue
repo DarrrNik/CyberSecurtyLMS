@@ -77,6 +77,7 @@ export default {
       email: "",
       fullName: "",
       password: "",
+      isTeacher: false,
     })
 
     const handleSubmit = async () => {

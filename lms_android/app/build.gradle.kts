@@ -21,13 +21,13 @@ val baseUrl: String =
     System.getProperty("BASE_URL")
         ?: System.getenv("BASE_URL")
         ?: localProperties.getProperty("BASE_URL")
-        ?: "\"https://default-url.example.com/api/\""
+        ?: "\"http://192.168.0.101:8080/\""
 
 val uploadsUrl: String =
     System.getProperty("UPLOADS_URL")
         ?: System.getenv("UPLOADS_URL")
         ?: localProperties.getProperty("UPLOADS_URL")
-        ?: "\"https://default-url.example.com/api/\""
+        ?: "\"http://192.168.0.101:8080/\""
 
 android {
     namespace = "hse.diploma.cybersecplatform"

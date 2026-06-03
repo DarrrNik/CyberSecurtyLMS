@@ -12,11 +12,6 @@ Comprehensive cybersecurity education platform with web interface and mobile app
 - 🔍 **Service Discovery** (Spring Boot Eureka)
 - 🔐 **Secure API** with JWT authentication
 
-## 🖥️ Web Application
-
-Available at:  
-👉 [https://kolyanok.ru:8043](https://kolyanok.ru:8043)
-
 **Technologies:**
 - **Frontend**: Vue.js 3, Axios
 

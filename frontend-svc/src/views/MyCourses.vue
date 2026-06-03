@@ -11,10 +11,10 @@
         <template v-else>
           <MyCourseCard
             v-for="vulnerability in vulnerabilities"
-            :key="vulnerability.name"
-            :title="vulnerability.name"
+            :key="vulnerability.id"
+            :title="vulnerability.id"
             :description="vulnerability.description"
-            :courseId="vulnerability.name"
+            :courseId="vulnerability.id"
             :gradient="vulnerability.gradient"
             :title-color="vulnerability.titleColor"
             :accent-color="vulnerability.accentColor"
@@ -50,7 +50,7 @@ export default {
     try {
       this.loading = true
       const response = await courseService.getCourses()
-      this.vulnerabilities = response.courses
+      this.vulnerabilities = response
     } catch (error) {
       this.error = error.error || "Failed to load courses"
       console.error("Error loading courses:", error)

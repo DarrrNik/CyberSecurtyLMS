@@ -31,4 +31,28 @@ export default [
     path: "/vulnerable-app/csrf.html",
     language: "javascript",
   },
+  {
+    id: "5",
+    title: "Задание 2: Пупупу",
+    vulnerability: "CSRF",
+    description: "Вот такие пироги",
+    path: "/vulnerable-app/csrf.html",
+    language: "javascript",
+  },
+  {
+    id: "6",
+    title: "Задание 3: Анекдот",
+    vulnerability: "CSRF",
+    description: "Анекдот про пилу",
+    path: "vulnerable-app/anecdot.html",
+    language: "javascript",
+  },
+  {
+    id: "7",
+    title: "Задание 4: Анекдот 2",
+    vulnerability: "CSRF",
+    description: "Анекдот 'Хипуешь, плесень'",
+    path: "/vulnerable-app/csrf.html",
+    language: "javascript",
+  },
 ]

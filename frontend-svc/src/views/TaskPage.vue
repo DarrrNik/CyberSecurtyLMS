@@ -25,15 +25,13 @@
           <div class="task-content">
             <div class="app-frame">
               <AppFrame
+                :key="currentTask.path"
                 :taskPath="currentTask.path"
                 @code-updated="updateCode"
               />
             </div>
             <div class="code-editor">
-              <CodeEditor
-                v-model="currentTask.code"
-                :language="currentTask.language"
-              />
+              <CodeEditor v-model="currentTask.code" />
               <button class="execute-button" @click="executeCode">
                 Запустить код
               </button>

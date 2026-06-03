@@ -1,63 +1,17 @@
-//import axios from "axios"
+import axios from "axios"
 
-// Mock data for tasks
-const MOCK_TASKS = [
-  {
-    id: "1",
-    title: "Задание 1: Broken Access Control",
-    vulnerability: "Серверные",
-    description: "Написать функцию для проверки доступа",
-    path: "/vulnerable-app/xss.html",
-    language: "html",
-  },
-  {
-    id: "2",
-    title: "Задание 2: Cryptographic Failures",
-    vulnerability: "Серверные",
-    description: "Улучшение шифрования аутентификации",
-    path: "/vulnerable-app/xss.html",
-    language: "html",
-  },
-  {
-    id: "3",
-    title: "Задание 3: Insecure Design",
-    vulnerability: "Серверные",
-    description: "Обезопасить эндпоинт загрузки файлов",
-    path: "/vulnerable-app/xss.html",
-    language: "html",
-  },
-  {
-    id: "4",
-    title: "Задание 2: CSRF",
-    vulnerability: "CSRF",
-    description: "CSRF, где проверка токена зависит от наличия токена",
-    path: "/vulnerable-app/csrf.html",
-    language: "javascript",
-  },
-]
+const API_URL = "http://localhost:8080/api"
 
 export const taskService = {
+  courseId: null,
+
+  setCourseId(id) {
+    this.courseId = id
+  },
   async getTasksByVulnerability(vulnerability) {
     try {
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 500))
-
-      // Filter tasks by vulnerability
-      const tasks = MOCK_TASKS.filter(
-        (task) => task.vulnerability === vulnerability
-      )
-
-      // Return mock response
-      return {
-        success: true,
-        tasks,
-      }
-
-      // Real API call (commented out)
-      /*
-      const response = await axios.get(`${API_URL}/tasks/${vulnerability}`);
-      return response.data;
-      */
+      const response = await axios.get(`${API_URL}/courses/${vulnerability}`)
+      return response.data
     } catch (error) {
       throw error.response?.data || { error: "Failed to fetch tasks" }
     }
@@ -65,20 +19,8 @@ export const taskService = {
 
   async getAllTasks() {
     try {
-      // Simulate API delay
-      await new Promise((resolve) => setTimeout(resolve, 500))
-
-      // Return all mock tasks
-      return {
-        success: true,
-        tasks: MOCK_TASKS,
-      }
-
-      // Real API call (commented out)
-      /*
-      const response = await axios.get(`${API_URL}/tasks`);
-      return response.data;
-      */
+      const response = await axios.get(`${API_URL}/tasks`)
+      return response.data
     } catch (error) {
       throw error.response?.data || { error: "Failed to fetch all tasks" }
     }

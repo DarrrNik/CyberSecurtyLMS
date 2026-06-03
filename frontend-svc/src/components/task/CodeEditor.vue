@@ -1,10 +1,9 @@
 <template>
   <MonacoEditor
-    v-model="code"
+    :value="modelValue"
     :options="editorOptions"
     @editorDidMount="editorDidMount"
-    @change="logChange"
-    language="javascript"
+    language="python"
   />
 </template>
 
@@ -12,29 +11,30 @@
 import MonacoEditor from "vue-monaco-editor"
 
 export default {
-  name: "CodeEditor",
+  data() {
+    return {
+      editor: null,
+    }
+  },
+
   components: {
     MonacoEditor,
   },
-  data() {
-    return {
-      code: '// Напишите ваш код здесь\nconsole.log("Hello, Vulnerable App!");', // Initial code
-      editorOptions: {
-        selectOnLineNumbers: true,
-        roundedSelection: false,
-        readOnly: false,
-        cursorStyle: "line",
-        automaticLayout: true,
-        theme: "vs-dark",
-      },
-    }
-  },
-  methods: {
-    editorDidMount(editor, monaco) {
-      console.log("Monaco Editor is ready!", editor, monaco)
+
+  props: {
+    modelValue: {
+      type: String,
+      default: "",
     },
-    logChange(newCode) {
-      this.$emit("code-changed", newCode)
+  },
+
+  methods: {
+    editorDidMount(editor) {
+      this.editor = editor
+
+      editor.onDidChangeModelContent(() => {
+        this.$emit("update:modelValue", editor.getValue())
+      })
     },
   },
 }

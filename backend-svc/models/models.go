@@ -252,7 +252,7 @@ type RegisterRequest struct {
 	Password  string `json:"password" binding:"required" example:"newpassword123"`
 	Email     string `json:"email" binding:"required" example:"user@example.com"`
 	FullName  string `json:"fullName" binding:"required" example:"New User"`
-	IsTeacher bool   `json:"isTeacher" binding:"required"`
+	IsTeacher bool   `json:"isTeacher"`
 }
 
 type RegisterResponse struct {

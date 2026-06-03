@@ -3,12 +3,6 @@ package main
 import (
 	"database/sql"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/golang-jwt/jwt/v5"
-	"github.com/hudl/fargo"
-	swaggerFiles "github.com/swaggo/files"
-	ginSwagger "github.com/swaggo/gin-swagger"
 	_ "lmsmodule/backend-svc/docs"
 	"lmsmodule/backend-svc/handlers"
 	"lmsmodule/backend-svc/models"
@@ -21,6 +15,13 @@ import (
 	"strings"
 	"syscall"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/golang-jwt/jwt/v5"
+	"github.com/hudl/fargo"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 // @title LMS API
@@ -199,7 +200,7 @@ func main() {
 	}
 
 	api := r.Group("/api")
-	api.Use(JWTAuthMiddleware())
+	//api.Use(JWTAuthMiddleware())
 	{
 		api.GET("/courses", handlers.GetCourses)
 		api.GET("/courses/:id", handlers.GetCourseByID)

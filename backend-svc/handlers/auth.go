@@ -3,15 +3,16 @@ package handlers
 import (
 	"errors"
 	"fmt"
-	"github.com/gin-gonic/gin"
-	jwt "github.com/golang-jwt/jwt/v5"
-	"github.com/pquerna/otp/totp"
-	"golang.org/x/crypto/bcrypt"
 	"lmsmodule/backend-svc/mail"
 	"lmsmodule/backend-svc/models"
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/gin-gonic/gin"
+	jwt "github.com/golang-jwt/jwt/v5"
+	"github.com/pquerna/otp/totp"
+	"golang.org/x/crypto/bcrypt"
 )
 
 // @Summary Register new user
@@ -27,7 +28,7 @@ import (
 func RegisterHandler(c *gin.Context) {
 	var req models.RegisterRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, models.ErrorResponse{Error: "Invalid request data"})
+		c.JSON(http.StatusBadRequest, models.ErrorResponse{Error: err.Error()})
 		return
 	}
 
